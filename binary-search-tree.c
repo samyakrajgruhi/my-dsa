@@ -39,25 +39,6 @@ void inorder(struct node *root){
     }
 }
 
-struct node *search(struct node *root,int data){
-    if(root != NULL){
-        inorder(root -> left);
-        if(data == root->data);
-        inorder(root -> right);
-    }
-    return root;
-}
-
-struct node *deletion(struct node *root){
-    int data;
-    printf("Enter the data you want to delete :");
-    scanf("%d",&data);
-
-    struct node *cur=search(root,data);
-
-    printf("%d",cur->data);   
-}
-
 void main(){
     struct node *root = NULL;
     root = insert(root, 50);
@@ -68,5 +49,4 @@ void main(){
     insert(root, 60);
     printf("Inorder traversal ");
     inorder(root);
-    deletion(root);
 }
