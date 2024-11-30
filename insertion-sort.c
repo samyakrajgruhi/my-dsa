@@ -11,9 +11,17 @@ void insertionSort(int arr[], int N){
         }
 
         arr[j+1] = key;
+        printpass(arr,N,i);
     }
 }
 
+void printpass(int arr[], int N, int n){
+    printf("Array after %d pass :",n);
+    for(int i=0; i<N; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 void printArray(int arr[], int N){
     for(int i=0; i<N; i++){
         printf("%d ", arr[i]);
@@ -30,7 +38,6 @@ void main(){
     printf("\n");
 
     insertionSort(arr, N);
-    printf("Sorted Array - ");
+    printf("\nSorted Array - ");
     printArray(arr,N);
-    printf("%d",NULL==0);
 }
