@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Define the structure for a tree node
+
 struct node {
     int data;
     struct node *left;
     struct node *right;
 };
 
-// Function to create a new node
+
 struct node* createnode(int data) {
     struct node* newnode = (struct node*)malloc(sizeof(struct node));
     newnode->data = data;
@@ -17,7 +17,6 @@ struct node* createnode(int data) {
     return newnode;
 }
 
-// Function to insert a node into the BST
 struct node* insert(struct node* root, int data) {
     if (root == NULL) {
         return createnode(data);
@@ -32,11 +31,9 @@ struct node* insert(struct node* root, int data) {
     return root;
 }
 
-// Function to find the minimum value node in a BST
 struct node* minValueNode(struct node* node) {
     struct node* current = node;
 
-    // Find the leftmost leaf
     while (current && current->left != NULL) {
         current = current->left;
     }
@@ -44,17 +41,14 @@ struct node* minValueNode(struct node* node) {
     return current;
 }
 
-// Function to delete a node in the BST
 struct node* deleteNode(struct node* root, int data) {
     if (root == NULL) return root;
 
-    // Traverse the tree
     if (data < root->data) {
         root->left = deleteNode(root->left, data);
     } else if (data > root->data) {
         root->right = deleteNode(root->right, data);
     } else {
-        // Node with only one child or no child
         if (root->left == NULL) {
             struct node* temp = root->right;
             free(root);
@@ -64,21 +58,14 @@ struct node* deleteNode(struct node* root, int data) {
             free(root);
             return temp;
         }
-
-        // Node with two children: Get the inorder successor
         struct node* temp = minValueNode(root->right);
-
-        // Copy the inorder successor's content to this node
         root->data = temp->data;
-
-        // Delete the inorder successor
         root->right = deleteNode(root->right, temp->data);
     }
 
     return root;
 }
 
-// Function for inorder traversal of the BST
 void inorder(struct node* root) {
     if (root != NULL) {
         inorder(root->left);
