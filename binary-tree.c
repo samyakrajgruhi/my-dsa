@@ -15,7 +15,7 @@ struct node* createnode(int data){
     return newnode;
 }
 
-void inorder(struct node *next){
+void inorder(struct node *next){// 5
     if(next!=NULL){
         inorder(next->left);
         printf("%d ",next->data);

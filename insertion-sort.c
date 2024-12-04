@@ -9,7 +9,6 @@ void insertionSort(int arr[], int N){
             arr[j+1] = arr[j];
             j = j-1;
         }
-
         arr[j+1] = key;
         printpass(arr,N,i);
     }

@@ -1,38 +1,36 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-void swap(int *array,int i,int j){
-    int temp=array[i];
-    array[i]=array[j];
-    array[j]=temp;
-}
-void bubblesort(int array[],int n){
-    int i;
-    int j;
-    for(i=0;i<n-1;i++){
-        for(j=0;j<n-i-1;j++){
-            if(array[j]>array[j+1]){
-                swap(array,j,j+1);
-            }   
-        }
+void printarray(int arr[],int range){
+    for(int i=0;i<range;i++){
+        printf(" %d",arr[i]);
     }
-}
-void main(){
-    int number,i=0;
-    printf("enter range:\n");
-    scanf("%d",&number);
-    int a[number];
-    printf("enter elements:\n");
-    for(i=0;i<number;i++){
-        scanf("%d",&a[i]);
-    }
-    
-    for(i=0;i<number;i++){
-        printf("%d ",a[i]);
-    }
-    bubblesort(a,number);
     printf("\n");
-    for(i=0;i<number;i++){
-        printf("%d ",a[i]);
+}
+
+void bubblesort(int arr[],int range){
+    for(int k=0;k<range-1;k++){
+        for(int i=0;i<range-k-1;i++){
+            if(arr[i]>arr[i+1]){
+                int temp=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=temp;
+            }
+        }
+        printf("array after %d pass :",k+1);
+        printarray(arr,range);
     }
 }
 
+void main(){
+    int arr[]={12,5,2,9,6,3,1,32,17,92,10,8},range;
+    range=sizeof(arr)/sizeof(arr[0]);
+
+    printf("Unsorted Array :");
+    printarray(arr,range);
+
+    bubblesort(arr,range);
+
+    printf("Sorted Array :");
+    printarray(arr,range);
+}
