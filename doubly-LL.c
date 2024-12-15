@@ -60,11 +60,10 @@ void insertspecific(struct node **head, int data, int pos){
 
     temp->next->prev = newnode;
     temp->next = newnode;
-
 }
 
 void delete(struct node **head,int data){
-    // FRONT DELETION
+    // FRONT DELETION //
     if((*head)->data==data){
         struct node *temp = *head;
         (*head) = (*head)->next;
@@ -81,14 +80,14 @@ void delete(struct node **head,int data){
     while(temp->data!=data){
         temp=temp->next;
     }
-    // END DELETION
+    // END DELETION //
     if(temp->next==NULL){
         temp->prev->next = NULL;
         printf("Element |%d| deleted successfully.\n",data);
         free(temp);
         return;
     }
-    // SPECIFIC DELETION
+    // SPECIFIC DELETION //
     temp->prev->next = temp->next;
     temp->next->prev = temp->prev;
     free(temp);
