@@ -15,14 +15,14 @@ struct node* createnode(int data){
     return newnode;
 }
 
-void inorder(struct node *next){// 5
-    if(next!=NULL){
-        inorder(next->left);
-        printf("%d ",next->data);
-        inorder(next->right);
+void inorder(struct node *root){
+    if(root!=NULL){ 
+        inorder(root->left);
+        printf("%d ",root->data);
+        inorder(root->right);
     }
 }
-
+       
 int main(){
     struct node *root=createnode(1);
     root->left=createnode(2);
