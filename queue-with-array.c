@@ -72,7 +72,7 @@ void main(){
     
     do{
         printf("\n1.Enque\n");
-        printf("2.Dequq\n");
+        printf("2.Deque\n");
         printf("3.Show\n");
         printf("4.Display\n");
         printf("5.Quit\n");
